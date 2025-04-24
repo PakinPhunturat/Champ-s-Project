@@ -26,12 +26,12 @@ export default async function RootLayout({
         className={`${roboto.className} antialiased`}
       >
 
-        <header className="flex justify-end items-center font-bold text-xl gap-4 p-4 bg-blue-100">
-          <Link className="mr-auto" href="/customer">Home</Link>
-          <div className="text-sm">
+        <header className="flex justify-end items-center font-bold text-xl gap-4 p-4 bg-gradient-to-r from-sky-200 to-sky-500">
+          <Link className="mr-auto" href="/pojek">Home</Link>
+          {/* <div className="text-sm">
             Token: ({JSON.stringify(await token())?.slice(1,6)}...) <br />
             User:  {await getUserNameFromToken()}
-          </div>
+          </div> */}
 
           {!(await token()) ? (
             <>
@@ -46,11 +46,11 @@ export default async function RootLayout({
 
 
         </header>
-        <main className="min-h-[60vh] bg-blue-50">
+        <main className="min-h-[85vh] bg-gradient-to-r from-orange-50 to-lime-50">
           {children}
         </main>
 
-        <footer>Copyright reserved</footer>
+        <footer className="p-4 flex justify-center flex-glow items-center bg-gradient-to-r from-sky-200 to-sky-500">Copyright reserved</footer>
       </body>
     </html>
   );

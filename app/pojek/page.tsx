@@ -51,7 +51,7 @@ export default async function TodoList() {
             {/* Description and subtasks - only show when task is expanded */}
               <div className="ml-6 mt-1">
                 {task.description && <div className="text-xs text-gray-600 mb-1">{task.description}</div>}
-                <div className="text-right text-xs text-gray-400 mt-1">written: 11.30 23/12/25</div>
+                {task.duaDate && <div className="text-xs text-gray-600 mb-1">{task.duaDate}</div>}                
               </div>
           </div>
         ))}

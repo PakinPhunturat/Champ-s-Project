@@ -17,7 +17,7 @@ export default function Login() {
     const { email, password } = state.data
 
     if (state.message) {
-        redirect('/customer')
+        redirect('/pojek')
     }
 
     return (<div className="flex flex-col pt-16 items-center">
