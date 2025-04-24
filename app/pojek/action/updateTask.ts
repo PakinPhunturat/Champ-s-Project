@@ -9,8 +9,8 @@ const updateTask = async (prevState: unknown, formData: FormData) => {
         title: formData.get("title") as string,
         description: formData.get("description") as string,
         dueDate: formData.get("dueDate") as string,
-        priority: false,
-        finish: false,
+        priority: formData.get("priority") === "on",
+        finish: formData.get("finish") === "on",
     }
     console.log("data: ", data)
 

@@ -67,6 +67,15 @@ export default function EditForm({ task }: { task: taskType }) {
                         defaultValue={dueDate}
                         placeholder="DD/MM/YY" />
                 </div>
+
+                <div>
+                    <input type="checkbox" name="finish" defaultChecked={finish} />
+                    <label className="ml-2 mr-20">Finish</label>
+                    
+                    <input type="checkbox" name="priority" defaultChecked={priority} />
+                    <label className="ml-2">Star</label>
+                </div>
+
                 <div>
                     <button
                         className="border px-4 py-2 rounded bg-blue-100"
