@@ -11,8 +11,8 @@ const roboto = Lato({
 })
 
 export const metadata: Metadata = {
-  title: "Customer Management",
-  description: "Customer Management System",
+  title: "ToDo-List",
+  description: "ToDo-List",
 };
 
 export default async function RootLayout({

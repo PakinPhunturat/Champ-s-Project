@@ -2,29 +2,28 @@
 
 import { redirect } from "next/navigation"
 import { useActionState } from "react"
-import addtask from "../action/addtask"
+import taskType from "../../task.type"
+import updateTask from "../../action/updateTask"
 
-export default function AddNew() {
-
-    const [state, action] = useActionState(addtask, {
+export default function EditForm({ task }: { task: taskType }) {
+    const [state, action] = useActionState(updateTask, {
         error: '',
         message: '',
         data: {
-            title: '',
-            description: '',
-            dueDate: '',
-            priority: false,
-            finish: false,
-
+            id: task.id || '',
+            title: task.title || '',
+            description: task.description || '',
+            finish: task.finish || false,
+            dueDate: task.duaDate || '',
+            priority: task.priority || false,
         },
     })
-
-    const { id, title, description, dueDate, priority, finish} = state.data
-
 
     if (state.message) {
         redirect('/pojek')
     }
+
+    const { id, title, description, finish, dueDate, priority} = state.data
 
     return (
         <>
@@ -32,11 +31,12 @@ export default function AddNew() {
                 className="max-w-md border mx-auto p-6 space-y-4 bg-white"
                 action={action}
             >
-                <h1 className="text-xl font-bold">Add New Task</h1>
+                <h1 className="text-xl font-bold">Edit Task</h1>
                 {(state.error) &&
                     (<div className="text-red-500">Error: {state.error} </div>)}
 
                 <div>
+                <input type="hidden" name="id" value={id} />
                     <label htmlFor="position">Title: </label>
                     <input
                         className="border-2 p-2 rounded w-full"
@@ -56,6 +56,8 @@ export default function AddNew() {
                         defaultValue={description}
                         placeholder="desciption" />
                 </div>
+
+                
                 
                 <div>
                     <label htmlFor="duedate">Due Date: </label>
@@ -68,7 +70,7 @@ export default function AddNew() {
                 <div>
                     <button
                         className="border px-4 py-2 rounded bg-blue-100"
-                        type="submit">Add
+                        type="submit">Edit
                     </button>
                     <button
                         className="border px-4 py-2 rounded bg-red-100 ml-2"
@@ -78,5 +80,3 @@ export default function AddNew() {
         </>
     )
 }
-
-
