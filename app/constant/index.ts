@@ -1,0 +1,1 @@
+export const SERVER_URL="https://172.20.10.3:3000"
